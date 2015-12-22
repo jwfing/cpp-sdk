@@ -11,7 +11,10 @@
 #ifndef INCLUDE_USER_AVUSER_H_
 #define INCLUDE_USER_AVUSER_H_
 
+#ifdef __cplusplus
 #include <string>
+#endif
+
 #include "AVObject/AVObject.h"
 #include "Query/AVQuery.h"
 #include "Utils/AVPlatformMacros.h"

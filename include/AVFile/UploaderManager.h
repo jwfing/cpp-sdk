@@ -10,9 +10,9 @@
 #ifndef INCLUDE_AVFILE_UPLOADERMANAGER_H_
 #define INCLUDE_AVFILE_UPLOADERMANAGER_H_
 
+#ifdef __cplusplus
 #include <string>
-#include <mutex>
-#include <condition_variable>
+#endif
 #include "AVFile.h"
 #include "AVConstants.h"
 #include "Utils/AVPlatformMacros.h"
@@ -20,10 +20,6 @@
 NS_AV_BEGIN
 
 class UploaderManager {
-private:
-  static UploaderManager* _instance;
-  static std::mutex _lock;
-
 private:
   UploaderManager(){}
   void uploadFileToBucketWithTokenAndCallback(std::string bucket,

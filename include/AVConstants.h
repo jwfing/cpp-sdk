@@ -11,9 +11,12 @@
 #ifndef INCLUDE_AVCONSTANTS_H_
 #define INCLUDE_AVCONSTANTS_H_
 
+#ifdef __cplusplus
 #include <functional>
 #include <string>
 #include <vector>
+#endif
+
 #include "json/json.h"
 #include "Utils/AVPlatformMacros.h"
 #include "Utils/AVErrorUtils.h"

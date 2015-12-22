@@ -11,7 +11,9 @@
 #ifndef INCLUDE_ACL_AVROLE_H_
 #define INCLUDE_ACL_AVROLE_H_
 
+#ifdef __cplusplus
 #include <string>
+#endif
 #include "AVObject/AVObject.h"
 #include "Utils/AVPlatformMacros.h"
 

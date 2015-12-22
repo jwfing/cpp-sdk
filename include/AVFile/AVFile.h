@@ -11,8 +11,9 @@
 #ifndef INCLUDE_AVFILE_AVFILE_H_
 #define INCLUDE_AVFILE_AVFILE_H_
 
+#ifdef __cplusplus
 #include <string>
-#include <fstream>
+#endif
 #include "AVConstants.h"
 #include "Utils/AVPlatformMacros.h"
 

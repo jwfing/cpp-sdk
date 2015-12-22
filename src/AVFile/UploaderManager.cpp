@@ -11,8 +11,10 @@
 
 #include <cstdlib>
 #include <string>
+#include <mutex>
 #include <exception>
 #include <sstream>
+#include <fstream>
 #include <boost/log/trivial.hpp>
 
 #include "json/json.h"
@@ -20,16 +22,16 @@
 
 NS_AV_BEGIN
 
-UploaderManager* UploaderManager::_instance = nullptr;
-std::mutex UploaderManager::_lock;
+static UploaderManager* g_AVFileUploader_instance = nullptr;
+static std::mutex g_AVFileUploader_lock;
 
 UploaderManager* UploaderManager::sharedInstance() {
-  std::lock_guard<std::mutex> locker(_lock);
-  if (_instance == nullptr) {
-    _instance = new UploaderManager();
+  std::lock_guard<std::mutex> locker(g_AVFileUploader_lock);
+  if (g_AVFileUploader_instance == nullptr) {
+    g_AVFileUploader_instance = new UploaderManager();
   }
 
-  return _instance;
+  return g_AVFileUploader_instance;
 }
 
 std::string UploaderManager::generateRandomString(int length) {

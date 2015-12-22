@@ -12,8 +12,9 @@
 #ifndef INCLUDE_AVOSCLOUD_H_
 #define INCLUDE_AVOSCLOUD_H_
 
-#include <iostream>
+#ifdef __cplusplus
 #include <string>
+#endif
 #include "AVConstants.h"
 #include "Utils/AVPlatformMacros.h"
 

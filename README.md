@@ -64,7 +64,7 @@ If you want to build this project for ARM, do as follows:
 		$ cd lib/cpp-netlib
 		$ mkdir cpp-netlib-build
 		$ cd cpp-netlib-build
-		$ cmake .. -DCMAKE_BUILD_TYPE=Debug -DCMAKE_TOOLCHAIN_FILE=../ToolchainARM.cmake
+		$ cmake .. -DCMAKE_BUILD_TYPE=Debug -DCMAKE_TOOLCHAIN_FILE=../../../ToolchainARM.cmake
 		$ make -j4 && make install		
  
 - build and install jsoncpp for ARM
@@ -72,7 +72,7 @@ If you want to build this project for ARM, do as follows:
 		$ cd lib/jsoncpp
 		$ mkdir jsoncpp-build
 		$ cd jsoncpp-build
-		$ cmake .. -DCMAKE_BUILD_TYPE=Debug -DMAKE_TOOLCHAIN_FILE=../ToolchainARM.cmake
+		$ cmake .. -DCMAKE_BUILD_TYPE=Debug -DMAKE_TOOLCHAIN_FILE=../../../ToolchainARM.cmake
 		$ make -j4 && make install
 
 - build AVOSCloud C++ SDK for ARM
@@ -124,7 +124,7 @@ Usually, we try to follow the google-cpp-code-style. There is a tool named as [c
 
 If you have any question about the cpp-sdk for AVOSCloud, please contact
 
-    Chaozhong Yang <cyang@avoscloud.com>
+    LeanCloud Support <support@leancloud.cn>
     
 ## License
 

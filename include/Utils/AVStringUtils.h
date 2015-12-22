@@ -15,8 +15,10 @@
 #include <cstdlib>
 #include <cstring>
 
+#ifdef __cplusplus
 #include <string>
 #include <boost/format.hpp>
+#endif
 
 #if defined(__APPLE__)
 #define COMMON_DIGEST_FOR_OPENSSL

@@ -11,11 +11,12 @@
 #ifndef INCLUDE_AVOBJECT_AVOBJECT_H_
 #define INCLUDE_AVOBJECT_AVOBJECT_H_
 
+#ifdef __cplusplus
 #include <string>
 #include <vector>
 #include <unordered_map>
-#include <boost/any.hpp>
-
+#endif
+ 
 #include "AVConstants.h"
 #include "Utils/AVPlatformMacros.h"
 #include "Geo/AVGeoPoint.h"

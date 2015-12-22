@@ -11,8 +11,11 @@
 #ifndef INCLUDE_UTILS_AVERRORUTILS_H_
 #define INCLUDE_UTILS_AVERRORUTILS_H_
 
+#ifdef __cplusplus
 #include <string>
 #include <unordered_map>
+#endif
+ 
 #include "json/json.h"
 #include "Utils/AVPlatformMacros.h"
 

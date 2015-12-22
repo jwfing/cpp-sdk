@@ -11,12 +11,13 @@
 #ifndef INCLUDE_REQUEST_AVPAASCLIENT_H_
 #define INCLUDE_REQUEST_AVPAASCLIENT_H_
 
+#ifdef __cplusplus
 #include <string>
 #include <vector>
 #include <unordered_map>
-#include <unordered_set>
-#include <mutex>
 #include <boost/network/protocol/http/client.hpp>
+#endif
+
 #include "Utils/AVPlatformMacros.h"
 #include "Utils/AVStringUtils.h"
 #include "AVConstants.h"
@@ -50,8 +51,6 @@ public:
   bool isLastModify;
 
 private:
-  static AVPaasClient *_instance;
-  static std::recursive_mutex _lock;
   stringMap _headerMap;
   bool _requestProcessed;
   std::string _responseBody;

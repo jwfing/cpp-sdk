@@ -11,7 +11,9 @@
 #ifndef INCLUDE_ACL_AVACL_H_
 #define INCLUDE_ACL_AVACL_H_
 
+#ifdef __cplusplus
 #include <string>
+#endif
 #include "json/json.h"
 #include "Utils/AVPlatformMacros.h"
 

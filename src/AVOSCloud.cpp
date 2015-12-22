@@ -9,6 +9,7 @@
  */
 
 #include <string>
+#include <iostream>
 
 #include "AVOSCloud.h"
 #include "Request/AVPaasClient.h"

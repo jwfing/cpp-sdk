@@ -12,6 +12,7 @@
 
 #include <string>
 #include <exception>
+#include <fstream>
 #include <boost/log/trivial.hpp>
 #include "AVFile/UploaderManager.h"
 #include "Request/AVPaasClient.h"

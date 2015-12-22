@@ -11,9 +11,12 @@
 #ifndef INCLUDE_QUERY_AVQUERY_H_
 #define INCLUDE_QUERY_AVQUERY_H_
 
+#ifdef __cplusplus
 #include <string>
 #include <vector>
 #include <unordered_set>
+#endif
+
 #include "AVConstants.h"
 #include "AVObject/AVObject.h"
 #include "Geo/AVGeoPoint.h"

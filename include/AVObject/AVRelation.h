@@ -11,7 +11,9 @@
 #ifndef INCLUDE_AVOBJECT_AVRELATION_H_
 #define INCLUDE_AVOBJECT_AVRELATION_H_
 
+#ifdef __cplusplus
 #include <string>
+#endif
 
 #include "AVObject/AVObject.h"
 #include "Query/AVQuery.h"

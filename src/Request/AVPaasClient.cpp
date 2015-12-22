@@ -16,6 +16,7 @@
 #include <fstream>
 #include <thread>
 #include <exception>
+#include <mutex>
 #include <boost/log/trivial.hpp>
 
 #define kAVDefaultNetworkTimeoutInterval 10.0
@@ -25,8 +26,8 @@ NS_AV_BEGIN
 const std::string API_VERSION = "1.1";
 const std::string QiniuServerPath = "http://up.qiniu.com";
 
-AVPaasClient* AVPaasClient::_instance = nullptr;
-std::recursive_mutex AVPaasClient::_lock;
+static AVPaasClient* g_AVPaasClient_instance = nullptr;
+static std::recursive_mutex g_AVPaasClient_lock;
 
 AVPaasClient::AVPaasClient()
     :clientImpl(),
@@ -47,12 +48,12 @@ AVPaasClient::~AVPaasClient() {
 }
 
 AVPaasClient* AVPaasClient::sharedInstance() {
-  std::lock_guard<std::recursive_mutex> locker(_lock);
-  if (_instance == nullptr) {
-    _instance = new AVPaasClient();
+  std::lock_guard<std::recursive_mutex> locker(g_AVPaasClient_lock);
+  if (g_AVPaasClient_instance == nullptr) {
+    g_AVPaasClient_instance = new AVPaasClient();
   }
 
-  return _instance;
+  return g_AVPaasClient_instance;
 }
 
 void AVPaasClient::release() {
@@ -178,7 +179,7 @@ void AVPaasClient::processResponse(http::client::response const & response,
 void AVPaasClient::getObject(std::string const & path,
                              map const & parameters,
                              AVIdResultCallback callback) {
-  std::lock_guard<std::recursive_mutex> locker(_lock);
+  std::lock_guard<std::recursive_mutex> locker(g_AVPaasClient_lock);
 
   try {
     this->updateHeaders();
@@ -195,7 +196,7 @@ void AVPaasClient::putObject(std::string const & path,
                              map const & parameters,
                              std::string const & sessionToken,
                              AVIdResultCallback callback) {
-  std::lock_guard<std::recursive_mutex> locker(_lock);
+  std::lock_guard<std::recursive_mutex> locker(g_AVPaasClient_lock);
 
   try {
     this->updateHeaders();
@@ -214,7 +215,7 @@ void AVPaasClient::putObject(std::string const & path,
 void AVPaasClient::postObject(std::string const & path,
                               map const & parameters,
                               AVIdResultCallback callback) {
-  std::lock_guard<std::recursive_mutex> locker(_lock);
+  std::lock_guard<std::recursive_mutex> locker(g_AVPaasClient_lock);
 
   try {
     this->updateHeaders();
@@ -232,7 +233,7 @@ void AVPaasClient::postObject(std::string const & path,
 void AVPaasClient::deleteObject(std::string const & path,
                                 map const & parameters,
                                 AVIdResultCallback callback) {
-  std::lock_guard<std::recursive_mutex> locker(_lock);
+  std::lock_guard<std::recursive_mutex> locker(g_AVPaasClient_lock);
 
   try {
     this->updateHeaders();

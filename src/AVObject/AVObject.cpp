@@ -13,6 +13,7 @@
 #include <string>
 #include <vector>
 #include <algorithm>
+#include <boost/any.hpp>
 
 #include "AVObject/AVRelation.h"
 #include "Request/AVPaasClient.h"
